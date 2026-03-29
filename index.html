@@ -569,7 +569,7 @@
         <button class="close-panel" id="closePaymentBtn">✕</button>
     </div>
     <div class="panel-body">
-        <img id="paymentQrImg" class="qr-image" src="https://picui.ogmua.cn/s1/2026/03/27/69c67a129085b.webp" alt="Paypal QR">
+        <img id="paymentQrImg" class="qr-image" src="https://picui.ogmua.cn/s1/2026/03/27/69c67a129085b.webp" alt="Paypal QR" onerror="this.src='https://placehold.co/300x300/2a1e3a/ff8e53?text=Payment+QR'">
         <div class="qr-caption">Scan to pay / contact</div>
     </div>
 </div>
@@ -580,7 +580,7 @@
         <button class="close-panel" id="closeWechatBtn">✕</button>
     </div>
     <div class="panel-body">
-        <img id="wechatQrImg" class="qr-image" src="https://picui.ogmua.cn/s1/2026/03/27/69c67a128fb34.webp" alt="Whatsapp QR">
+        <img id="wechatQrImg" class="qr-image" src="https://picui.ogmua.cn/s1/2026/03/27/69c67a128fb34.webp" alt="Whatsapp QR" onerror="this.src='https://placehold.co/300x300/2a1e3a/ff8e53?text=Contact+QR'">
         <div class="qr-caption">Scan to connect with Yonah</div>
     </div>
 </div>
@@ -595,16 +595,35 @@
 
 <script>
     const products = [
-        { id:1, name:"Seven Dragon Ball self-discipline self-motivation to eat self to Eat Well, Exercise and Sleep Creative Decorative Painting Decoration Wood Photo Frame Decoration Stage", desc:"Legendary collectible with radiant glow, perfect for anime lovers and collectors. Ultimate energy sphere.", price:15.99, unit:"ea", category:"gifts", 
+        { id:1, name:"Seven Dragon Ball · Self-discipline & Motivation Art Piece", desc:"Legendary collectible with radiant glow, perfect for anime lovers and collectors. Ultimate energy sphere to inspire daily focus.", price:15.99, unit:"ea", category:"gifts", 
           mainImage:"https://picui.ogmua.cn/s1/2026/03/29/69c8b936025a3.webp",
-          images:["https://picui.ogmua.cn/s1/2026/03/29/69c8b936025a3.webp","https://picsum.photos/id/104/400/400"]
-          specs:"Exclusive limited edition · Material: resin & metallic coating · Diameter: 2.5in · includes display stand." }
+          images:["https://picui.ogmua.cn/s1/2026/03/29/69c8b936025a3.webp","https://picsum.photos/id/104/400/400"],
+          specs:"Exclusive limited edition · Material: resin & metallic coating · Diameter: 2.5in · includes display stand." },
+        { id:2, name:"Aromatherapy Ceramic Diffuser · Calming Mist", desc:"Ultrasonic essential oil diffuser with warm LED light, creates serene atmosphere for home or office.", price:28.50, unit:"pc", category:"home", 
+          mainImage:"https://picsum.photos/id/20/400/400", 
+          images:["https://picsum.photos/id/20/400/400","https://picsum.photos/id/21/400/400"],
+          specs:"Capacity: 300ml · Auto shut-off · 7 color LED · Whisper-quiet operation" },
+        { id:3, name:"Minimalist Leather Backpack · Vintage Style", desc:"Handcrafted genuine leather backpack, lightweight and durable, perfect for daily commute or travel.", price:79.00, unit:"pc", category:"style", 
+          mainImage:"https://picsum.photos/id/82/400/400", 
+          images:["https://picsum.photos/id/82/400/400","https://picsum.photos/id/83/400/400"],
+          specs:"Material: Full-grain leather · Laptop compartment up to 14in · Adjustable straps" },
+        { id:4, name:"Rose Quartz Facial Roller & Gua Sha Set", desc:"Natural jade and rose quartz set to reduce puffiness, enhance skin glow, spa-quality self-care.", price:24.99, unit:"set", category:"beauty", 
+          mainImage:"https://picsum.photos/id/29/400/400", 
+          images:["https://picsum.photos/id/29/400/400","https://picsum.photos/id/30/400/400"],
+          specs:"Includes roller + gua sha · Natural stone · Storage pouch included" },
+        { id:5, name:"Personalized Star Map Print · Custom Date", desc:"Celebrate special moments with a custom star chart poster, elegant gift for weddings, anniversaries or birthdays.", price:39.90, unit:"pc", category:"gifts", 
+          mainImage:"https://picsum.photos/id/96/400/400", 
+          images:["https://picsum.photos/id/96/400/400","https://picsum.photos/id/95/400/400"],
+          specs:"High-quality archival paper · Frame not included · Custom coordinates & date" }
     ];
 
     let currentCategory = "all";
     let currentSearchKeyword = "";
 
-    function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, (m) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[m] || m)); }
+    function escapeHtml(str) { 
+        if(!str) return ''; 
+        return str.replace(/[&<>]/g, (m) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[m] || m)); 
+    }
 
     function getFilteredProducts() {
         let filtered = [...products];
@@ -662,15 +681,14 @@
         const modal = document.getElementById("detailModal");
         const detailMain = document.getElementById("detailMain");
         
-        let currentMainImg = product.mainImage;
         const images = product.images && product.images.length ? product.images : [product.mainImage];
         
         detailMain.innerHTML = `
             <div class="detail-gallery">
-                <img id="detailMainImg" class="detail-main-img" src="${currentMainImg}" alt="${escapeHtml(product.name)}">
+                <img id="detailMainImg" class="detail-main-img" src="${product.mainImage}" alt="${escapeHtml(product.name)}" onerror="this.src='https://picsum.photos/id/1/400/400'">
                 <div class="detail-thumbnails" id="detailThumbnails">
                     ${images.map((img, idx) => `
-                        <img class="thumb-img ${idx === 0 ? 'active' : ''}" data-src="${img}" src="${img}" alt="thumbnail">
+                        <img class="thumb-img ${idx === 0 ? 'active' : ''}" data-src="${img}" src="${img}" alt="thumbnail" onerror="this.src='https://picsum.photos/id/1/70/70'">
                     `).join('')}
                 </div>
             </div>
@@ -680,7 +698,7 @@
                 <div class="detail-desc">${escapeHtml(product.desc)}</div>
                 <div class="detail-spec">
                     <h4>📦 Specifications</h4>
-                    <p>${escapeHtml(product.specs) || "Premium quality from Yonah House."}</p>
+                    <p>${escapeHtml(product.specs) || "Premium quality from Yonah House. Carefully sourced for your everyday joy."}</p>
                 </div>
                 <div class="detail-buy">
                     <button class="detail-buy-btn" id="detailBuyBtn">🛒 Purchase · Contact via panel</button>
@@ -697,7 +715,8 @@
                 thumb.addEventListener('click', () => {
                     thumbs.forEach(t => t.classList.remove('active'));
                     thumb.classList.add('active');
-                    mainImg.src = thumb.dataset.src || thumb.src;
+                    const targetSrc = thumb.dataset.src || thumb.src;
+                    if(mainImg) mainImg.src = targetSrc;
                 });
             });
             
@@ -705,7 +724,7 @@
             if(buyBtn) {
                 buyBtn.onclick = () => {
                     closeAllPanels();
-                    showPaymentPanel();   // 点击购买按钮展示支付侧边栏
+                    showPaymentPanel();
                 };
             }
         }, 50);
@@ -720,6 +739,13 @@
                 if(btn.dataset.cat === "all") btn.classList.add("active");
                 else btn.classList.remove("active");
             });
+        } else {
+            if(currentCategory === "all") {
+                document.querySelectorAll(".cat-btn").forEach(btn => {
+                    if(btn.dataset.cat === "all") btn.classList.add("active");
+                    else btn.classList.remove("active");
+                });
+            }
         }
         renderProductGrid();
     }
@@ -737,46 +763,65 @@
 
     let paymentPanelOpen = false, wechatPanelOpen = false;
     function closeAllPanels() {
-        document.getElementById("paymentPanel").classList.remove("show");
-        document.getElementById("wechatPanel").classList.remove("show");
-        paymentPanelOpen = wechatPanelOpen = false;
+        const paymentPanel = document.getElementById("paymentPanel");
+        const wechatPanel = document.getElementById("wechatPanel");
+        if(paymentPanel) paymentPanel.classList.remove("show");
+        if(wechatPanel) wechatPanel.classList.remove("show");
+        paymentPanelOpen = false;
+        wechatPanelOpen = false;
     }
+    
     function showPaymentPanel() {
-        if(paymentPanelOpen) closeAllPanels();
-        else {
+        const panel = document.getElementById("paymentPanel");
+        if(!panel) return;
+        if(panel.classList.contains("show")) {
             closeAllPanels();
-            document.getElementById("paymentPanel").classList.add("show");
+        } else {
+            closeAllPanels();
+            panel.classList.add("show");
             paymentPanelOpen = true;
         }
     }
+    
     function showWechatPanel() {
-        if(wechatPanelOpen) closeAllPanels();
-        else {
+        const panel = document.getElementById("wechatPanel");
+        if(!panel) return;
+        if(panel.classList.contains("show")) {
             closeAllPanels();
-            document.getElementById("wechatPanel").classList.add("show");
+        } else {
+            closeAllPanels();
+            panel.classList.add("show");
             wechatPanelOpen = true;
         }
     }
 
-    window.onload = () => {
+    function initEventListeners() {
         document.querySelectorAll(".cat-btn").forEach(btn => {
             btn.addEventListener("click", () => switchCategory(btn.dataset.cat));
         });
-        document.querySelector(".cat-btn[data-cat='all']").classList.add("active");
         
         document.getElementById("searchBtn").onclick = performSearch;
-        document.getElementById("searchInput").onkeypress = (e) => { if(e.key === "Enter") performSearch(); };
-        document.getElementById("searchInfo").onclick = () => {
-            if(currentSearchKeyword) {
-                currentSearchKeyword = "";
-                document.getElementById("searchInput").value = "";
-                renderProductGrid();
-            } else if(currentCategory !== "all") {
-                switchCategory("all");
-            } else if(currentSearchKeyword === "" && currentCategory === "all") {
-                renderProductGrid();
-            }
-        };
+        const searchInput = document.getElementById("searchInput");
+        if(searchInput) searchInput.onkeypress = (e) => { if(e.key === "Enter") performSearch(); };
+        
+        const searchInfo = document.getElementById("searchInfo");
+        if(searchInfo) {
+            searchInfo.onclick = () => {
+                if(currentSearchKeyword) {
+                    currentSearchKeyword = "";
+                    document.getElementById("searchInput").value = "";
+                    if(currentCategory !== "all") {
+                        switchCategory("all");
+                    } else {
+                        renderProductGrid();
+                    }
+                } else if(currentCategory !== "all") {
+                    switchCategory("all");
+                } else {
+                    renderProductGrid();
+                }
+            };
+        }
         
         document.getElementById("paymentCodeBtn").onclick = showPaymentPanel;
         document.getElementById("wechatFriendBtn").onclick = showWechatPanel;
@@ -784,12 +829,27 @@
         document.getElementById("closeWechatBtn").onclick = closeAllPanels;
         
         const modal = document.getElementById("detailModal");
-        document.getElementById("closeDetailBtn").onclick = () => modal.classList.remove("show");
-        modal.onclick = (e) => { if(e.target === modal) modal.classList.remove("show"); };
-        window.onclick = (e) => { if(!e.target.closest(".side-panel") && !e.target.closest(".float-btn")) closeAllPanels(); };
+        const closeDetail = document.getElementById("closeDetailBtn");
+        if(closeDetail) closeDetail.onclick = () => modal.classList.remove("show");
+        if(modal) modal.onclick = (e) => { if(e.target === modal) modal.classList.remove("show"); };
         
+        window.addEventListener("click", (e) => {
+            if(!e.target.closest(".side-panel") && !e.target.closest(".float-btn") && !e.target.closest(".detail-buy-btn")) {
+                closeAllPanels();
+            }
+        });
+        
+        const paymentQr = document.getElementById("paymentQrImg");
+        const wechatQr = document.getElementById("wechatQrImg");
+        if(paymentQr) paymentQr.onerror = () => { paymentQr.src = "https://placehold.co/300x300/2a1e3a/ff8e53?text=Payment+QR"; };
+        if(wechatQr) wechatQr.onerror = () => { wechatQr.src = "https://placehold.co/300x300/2a1e3a/ff8e53?text=Contact+QR"; };
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector(".cat-btn[data-cat='all']").classList.add("active");
         renderProductGrid();
-    };
+        initEventListeners();
+    });
 </script>
 </body>
 </html>
