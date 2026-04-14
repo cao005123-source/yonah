@@ -442,7 +442,7 @@
 <body>
 <div class="container">
     <div class="hero">
-        <h1>Yonah House · Text-only</h1>
+        <h1>Yonah House </h1>
         <div class="sub">curated goods · no images, pure essence</div>
     </div>
 
@@ -455,11 +455,11 @@
     </div>
 
     <div class="category-bar">
-        <button class="cat-btn" data-cat="home">🏠 Home</button>
-        <button class="cat-btn" data-cat="accessories">🕶️ Accessories</button>
-        <button class="cat-btn" data-cat="beauty">✨ Beauty</button>
-        <button class="cat-btn" data-cat="lifestyle">🧘 Lifestyle</button>
-        <button class="cat-btn" data-cat="all">🌿 All</button>
+        <button class="cat-btn" data-cat="home">Home</button>
+        <button class="cat-btn" data-cat="accessories">Accessories</button>
+        <button class="cat-btn" data-cat="beauty">Beauty</button>
+        <button class="cat-btn" data-cat="lifestyle">Lifestyle</button>
+        <button class="cat-btn" data-cat="all">All</button>
     </div>
 
     <div id="productGrid" class="product-grid"></div>
@@ -473,7 +473,7 @@
 
 <div id="paymentPanel" class="side-panel">
     <div class="panel-header">
-        <span>💳 Payment (Paypal)</span>
+        <span>Payment (Paypal)</span>
         <button class="close-panel" id="closePaymentBtn">✕</button>
     </div>
     <div class="panel-body">
@@ -484,7 +484,7 @@
 
 <div id="wechatPanel" class="side-panel">
     <div class="panel-header">
-        <span>📱 Contact / WhatsApp</span>
+        <span>Contact / WhatsApp</span>
         <button class="close-panel" id="closeWechatBtn">✕</button>
     </div>
     <div class="panel-body">
@@ -569,7 +569,7 @@
             return;
         }
 
-        searchInfoDiv.innerHTML = currentSearchKeyword ? `🔍 “${escapeHtml(currentSearchKeyword)}”  ${filtered.length} items` : `📋 ${filtered.length} curated items · click to reset`;
+        searchInfoDiv.innerHTML = currentSearchKeyword ? `🔍 “${escapeHtml(currentSearchKeyword)}”  ${filtered.length} items` : ` ${filtered.length} curated items · click to reset`;
 
         grid.innerHTML = filtered.map(product => `
             <div class="product-card" data-id="${product.id}">
@@ -581,7 +581,7 @@
                     <span class="unit">/ ${escapeHtml(product.unit)}</span>
                     <span class="category-tag">${escapeHtml(product.category)}</span>
                 </div>
-                <div class="info-hint">📖 tap for details →</div>
+                <div class="info-hint"> tap for details →</div>
             </div>
         `).join('');
 
