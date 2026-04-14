@@ -624,7 +624,7 @@
 
     function showProductDetail(product) {
         const modal = document.getElementById("detailModal"); const detailMain = document.getElementById("detailMain");
-        detailMain.innerHTML = `<h2>${escapeHtml(product.name)}</h2><div class="detail-price">$${product.price.toFixed(2)} <span style="font-size:1rem;">/ ${product.unit}</span></div><div class="detail-desc">${escapeHtml(product.desc)}</div><div class="detail-spec"><h4>Specifications</h4><p>${escapeHtml(product.specs) || "Premium quality from Yonah House."}</p></div><button class="detail-buy-btn" id="detailBuyBtn">Purchase / Inquire</button>`;
+        detailMain.innerHTML = `<h2>${escapeHtml(product.name)}</h2><div class="detail-price">$${product.price.toFixed(2)} <span style="font-size:1rem;">/ ${product.unit}</span></div><div class="detail-desc">${escapeHtml(product.desc)}</div><div class="detail-spec"><h4>Specifications</h4><p>${escapeHtml(product.specs) || "Premium quality from Yonah House."}</p></div><button class="detail-buy-btn" id="detailBuyBtn">Yonah</button>`;
         modal.classList.add("show");
         setTimeout(() => { const buyBtn = document.getElementById('detailBuyBtn'); if(buyBtn) buyBtn.onclick = () => { openPaymentPanel(); }; }, 30);
     }
