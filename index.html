@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Yonah House · Matte Black | 磁吸悬浮球</title>
+    <title>Yonah House</title>
     <style>
         * {
             margin: 0;
@@ -11,7 +11,6 @@
             box-sizing: border-box;
         }
 
-        /* 哑光黑基底 + 高级质感 */
         body {
             background: #141414;
             font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, 'Poppins', 'Roboto', sans-serif;
@@ -28,7 +27,6 @@
             z-index: 2;
         }
 
-        /* 头部区域 - 完全保留原始标题 */
         .hero {
             text-align: center;
             margin-bottom: 2.2rem;
@@ -49,7 +47,6 @@
             letter-spacing: 0.3px;
         }
 
-        /* 搜索区域 */
         .search-section {
             max-width: 560px;
             margin: 0 auto 1.8rem auto;
@@ -114,7 +111,6 @@
             background: rgba(59,130,246,0.1);
         }
 
-        /* 纯文字导航 + 细线条指示器 */
         .category-bar {
             display: flex;
             flex-wrap: wrap;
@@ -163,7 +159,6 @@
             background: #94B8FF;
         }
 
-        /* 商品卡片纯文字 */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -253,7 +248,6 @@
             justify-content: flex-end;
         }
 
-        /* ---------- 双环磁吸悬浮球 (方案1 最推荐) ---------- */
         .magnetic-orb {
             position: fixed;
             bottom: 32px;
@@ -261,7 +255,6 @@
             z-index: 2000;
         }
 
-        /* 主悬浮球: 半透明磨砂小球 */
         .orb-core {
             width: 40px;
             height: 40px;
@@ -284,7 +277,6 @@
             box-shadow: 0 4px 14px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.3);
         }
 
-        /* 内部双图标容器 (hover时显现, 上下磁吸排列) */
         .orb-icons {
             position: absolute;
             top: 50%;
@@ -319,7 +311,6 @@
             opacity: 0.9;
         }
 
-        /* 展开浮层容器 (点击后弹出) */
         .orb-floats {
             position: absolute;
             bottom: 50px;
@@ -340,7 +331,6 @@
             pointer-events: auto;
         }
 
-        /* 单个浮层卡片: 半透磨砂黑，边缘极细高光 */
         .float-card {
             background: rgba(40, 40, 40, 0.85);
             backdrop-filter: blur(16px);
@@ -399,12 +389,10 @@
             background: rgba(255,255,255,0.1);
         }
 
-        /* 针对浮层内部调整相对定位 */
         .float-card {
             position: relative;
         }
 
-        /* 详情弹窗 */
         .detail-modal {
             display: none;
             position: fixed;
@@ -547,7 +535,6 @@
     <div class="footer">matte black essence · no images, only stories</div>
 </div>
 
-<!-- 双环磁吸悬浮球 -->
 <div class="magnetic-orb" id="magneticOrb">
     <div class="orb-core" id="orbCore">
         <div class="orb-icons">
@@ -571,13 +558,13 @@
         <div class="float-card" id="paymentFloat">
             <div class="close-float" id="closePaymentFloat">✕</div>
             <div class="float-label">Payment · PayPal</div>
-            <img id="paymentQrImg" class="qr-img" src="https://picui.ogmua.cn/s1/2026/03/27/69c67a129085b.webp" alt="PayPal QR" onerror="this.src='https://placehold.co/280x280/141414/94B8FF?text=PayPal+QR'">
+            <img id="paymentQrImg" class="qr-img" src="paypal.jpg" alt="PayPal QR" onerror="this.src='https://placehold.co/280x280/141414/94B8FF?text=PayPal+QR'">
             <div class="qr-caption">Scan to pay securely</div>
         </div>
         <div class="float-card" id="contactFloat">
             <div class="close-float" id="closeContactFloat">✕</div>
             <div class="float-label">Contact · WhatsApp</div>
-            <img id="contactQrImg" class="qr-img" src="https://picui.ogmua.cn/s1/2026/03/27/69c67a128fb34.webp" alt="WhatsApp QR" onerror="this.src='https://placehold.co/280x280/141414/94B8FF?text=Contact+QR'">
+            <img id="contactQrImg" class="qr-img" src="whatsapp.jpg" alt="WhatsApp QR" onerror="this.src='https://placehold.co/280x280/141414/94B8FF?text=Contact+QR'">
             <div class="qr-caption">Scan to connect with Yonah</div>
         </div>
     </div>
@@ -591,7 +578,7 @@
 </div>
 
 <script>
-    // 您提供的完整产品数据 (17件)
+
     const products = [
         { id:1, name:"Seven Dragon Ball · Self-discipline Art Piece", desc:"Legendary collectible with radiant glow, inspires daily focus and motivation. Perfect for anime lovers.", price:15.99, unit:"pc", category:"lifestyle", specs:"Limited edition · resin + metallic coating · Diameter 2.5 in · includes display stand." },
         { id:2, name:"pebblepaw Cat Plush Charm", desc:"Adorable grey & white tiger-striped cat plushie. Bag/key accessory, combines cuteness and companionship.", price:29.99, unit:"pc", category:"accessories", specs:"Approx 5.1 inches · high-quality plush fabric." },
