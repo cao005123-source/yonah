@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Yonah House · Curated Goods</title>
+    <title>Yonah House · Text-only Curated Goods</title>
     <style>
         * {
             margin: 0;
@@ -12,309 +12,268 @@
         }
 
         body {
-            background: linear-gradient(135deg, #0f0c1e 0%, #1a142f 50%, #0d0b1a 100%);
-            font-family: 'Segoe UI', 'Poppins', 'Roboto', system-ui, -apple-system, 'Microsoft YaHei', sans-serif;
-            color: #ffffff;
-            line-height: 1.4;
+            background: #0a0912;
+            background-image: radial-gradient(circle at 10% 20%, rgba(255, 110, 100, 0.06) 0%, transparent 45%),
+                              radial-gradient(circle at 90% 70%, rgba(210, 120, 180, 0.04) 0%, transparent 50%);
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, 'Poppins', 'Roboto', sans-serif;
+            color: #ececf4;
+            line-height: 1.45;
             min-height: 100vh;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
         .container {
-            max-width: 1400px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 2rem 1.5rem 3rem;
+            padding: 2rem 1.8rem 4rem;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
+        /* header */
         .hero {
             text-align: center;
             margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            position: relative;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,245,225,0.1);
         }
         .hero h1 {
-            font-size: 2rem;
-            background: linear-gradient(135deg, #ffd89b, #c7e9fb, #ff6b6b);
-            -webkit-background-clip: text;
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            background: linear-gradient(120deg, #fef0da, #ffb288, #ff8a7a);
             background-clip: text;
+            -webkit-background-clip: text;
             color: transparent;
-            letter-spacing: 4px;
-            font-weight: 700;
-            text-shadow: 0 0 30px rgba(255,107,107,0.3);
-            animation: glowPulse 3s ease-in-out infinite;
-        }
-        @keyframes glowPulse {
-            0%, 100% { text-shadow: 0 0 20px rgba(255,107,107,0.3); }
-            50% { text-shadow: 0 0 40px rgba(255,107,107,0.6); }
+            margin-bottom: 0.3rem;
         }
         .hero .sub {
-            font-size: 1rem;
-            color: rgba(255,255,255,0.7);
-            letter-spacing: 2px;
+            font-size: 0.95rem;
+            color: #aaa6c7;
+            font-weight: 400;
         }
 
+        /* search */
         .search-section {
             max-width: 560px;
-            margin: 0 auto 1.5rem auto;
-            padding: 0 0.5rem;
+            margin: 0 auto 1.8rem auto;
         }
         .search-box {
             display: flex;
             gap: 0.6rem;
-            background: rgba(255,255,255,0.08);
-            backdrop-filter: blur(10px);
-            border-radius: 60px;
-            padding: 0.3rem 0.3rem 0.3rem 1.2rem;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2), 0 0 0 1px rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
+            background: #14111e;
+            border-radius: 48px;
+            padding: 0.2rem 0.2rem 0.2rem 1.4rem;
+            border: 1px solid #2f2a40;
+            transition: all 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .search-box:focus-within {
+            border-color: #ff8a7a;
+            box-shadow: 0 0 0 2px rgba(255, 110, 100, 0.3);
         }
         .search-box input {
             flex: 1;
+            background: transparent;
             border: none;
             padding: 0.75rem 0;
-            font-size: 1rem;
-            background: transparent;
+            font-size: 0.95rem;
+            color: #f2f0ff;
             outline: none;
             font-family: inherit;
-            color: #ffffff;
         }
         .search-box input::placeholder {
-            color: rgba(255,255,255,0.5);
+            color: #5e5a7c;
         }
         .search-box button {
-            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            background: #ff6f61;
             border: none;
             padding: 0 1.5rem;
             border-radius: 48px;
             color: white;
-            font-weight: 600;
+            font-weight: 500;
+            font-size: 0.85rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(255,107,107,0.3);
+            transition: all 0.2s;
+            letter-spacing: 0.3px;
         }
         .search-box button:hover {
-            transform: scale(1.02);
-            box-shadow: 0 6px 20px rgba(255,107,107,0.5);
+            background: #ff5848;
+            transform: scale(0.98);
         }
         .search-info {
             text-align: center;
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.6);
+            font-size: 0.75rem;
+            color: #8b87aa;
             margin-top: 0.6rem;
             cursor: pointer;
             display: inline-block;
-            width: auto;
-            padding: 0 10px;
-            transition: all 0.3s;
+            background: rgba(255,245,235,0.05);
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            transition: all 0.2s;
         }
         .search-info:hover {
-            color: #ff8e53;
-            text-shadow: 0 0 10px rgba(255,142,83,0.5);
+            color: #ffb68b;
+            background: rgba(255,111,97,0.12);
         }
 
+        /* categories */
         .category-bar {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 0.8rem;
-            margin-bottom: 2rem;
+            gap: 0.7rem;
+            margin-bottom: 2.2rem;
         }
         .cat-btn {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 0.6rem 1.8rem;
-            font-size: 0.95rem;
+            background: #14111e;
+            border: 1px solid #2d283e;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.85rem;
             font-weight: 500;
-            border-radius: 48px;
+            border-radius: 60px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            color: rgba(255,255,255,0.8);
+            transition: all 0.2s;
+            color: #cdcae6;
         }
         .cat-btn:hover {
-            background: rgba(255,107,107,0.3);
-            border-color: #ff6b6b;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255,107,107,0.2);
+            background: #211d2f;
+            border-color: #ff8a7a;
+            color: white;
         }
         .cat-btn.active {
-            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
-            border-color: transparent;
+            background: #ff6f61;
+            border-color: #ff6f61;
             color: white;
-            box-shadow: 0 5px 20px rgba(255,107,107,0.4);
+            box-shadow: 0 4px 12px rgba(255, 111, 97, 0.3);
         }
 
+        /* text-only product cards — no images, pure typography */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.8rem;
-            animation: fadeInUp 0.5s ease;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.6rem;
         }
 
         .product-card {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.15);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(18, 15, 28, 0.75);
+            backdrop-filter: blur(4px);
+            border-radius: 28px;
+            padding: 1.4rem 1.5rem 1.6rem;
+            border: 1px solid rgba(255,245,230,0.08);
+            transition: all 0.25s ease;
             cursor: pointer;
-            position: relative;
             display: flex;
             flex-direction: column;
-        }
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.6s;
-        }
-        .product-card:hover::before {
-            left: 100%;
         }
         .product-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: rgba(255,107,107,0.5);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,107,107,0.3);
+            background: #1f1b2e;
+            border-color: rgba(255, 111, 97, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 28px -10px rgba(0,0,0,0.6);
         }
 
-        .product-img {
-            background: linear-gradient(135deg, rgba(30,20,40,0.8) 0%, rgba(20,15,30,0.9) 100%);
-            height: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-            flex-shrink: 0;
-        }
-        .product-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        .product-card:hover .product-img img {
-            transform: scale(1.05);
+        .text-badge {
+            display: inline-block;
+            background: rgba(255,111,97,0.12);
+            padding: 0.2rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            color: #ffbb99;
+            margin-bottom: 1rem;
+            width: fit-content;
+            border: 0.5px solid rgba(255,111,97,0.3);
         }
 
-        .product-info {
-            padding: 1.2rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
         .product-name {
-            font-size: 1.2rem;
+            font-size: 1.35rem;
             font-weight: 600;
-            background: linear-gradient(135deg, #fff, #ffd89b);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 0.3rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            word-break: break-word;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+            color: #fff3e6;
+            letter-spacing: -0.2px;
         }
         .product-desc {
             font-size: 0.85rem;
-            color: rgba(255,255,255,0.6);
-            margin: 0.4rem 0;
-            line-height: 1.4;
+            color: #bcb9d6;
+            margin: 0.5rem 0 0.8rem;
+            line-height: 1.45;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            text-overflow: ellipsis;
-            word-break: break-word;
         }
-        .price-row {
+        .meta-row {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin: 0.8rem 0 0.4rem;
+            margin: 0.6rem 0 0.2rem;
+            flex-wrap: wrap;
+            gap: 6px;
         }
         .price {
-            font-size: 1.4rem;
+            font-size: 1.55rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #ff8e53, #ff6b6b);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: #ffae85;
+            letter-spacing: -0.3px;
         }
         .unit {
             font-size: 0.7rem;
-            color: rgba(255,255,255,0.5);
+            color: #948fbb;
         }
-        .buy-simple {
-            margin-top: 12px;
-            padding-top: 8px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+        .category-tag {
+            font-size: 0.7rem;
+            background: #2c263d;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            color: #d9d4f0;
+        }
+        .info-hint {
+            margin-top: 0.9rem;
+            font-size: 0.7rem;
+            color: #7e7aa0;
+            border-top: 1px dashed rgba(255,245,200,0.12);
+            padding-top: 0.7rem;
             display: flex;
             justify-content: flex-end;
         }
-        .order-hint-simple {
-            font-size: 0.7rem;
-            color: rgba(255,255,255,0.5);
-            background: rgba(255,255,255,0.05);
-            padding: 6px 12px;
-            border-radius: 30px;
-            display: inline-block;
-        }
 
+        /* floating action */
         .float-buttons {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
+            bottom: 28px;
+            right: 28px;
             display: flex;
-            gap: 16px;
+            gap: 14px;
             z-index: 1000;
         }
         .float-btn {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
-            color: white;
-            border: none;
+            width: 54px;
+            height: 54px;
+            border-radius: 30px;
+            background: #1e192b;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,111,97,0.5);
+            color: #ffd9c4;
             cursor: pointer;
-            box-shadow: 0 8px 20px rgba(255,107,107,0.4);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.5);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            transition: all 0.3s;
+            font-size: 1.4rem;
+            transition: 0.2s;
         }
         .float-btn:hover {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 12px 30px rgba(255,107,107,0.6);
+            background: #ff6f61;
+            color: white;
+            transform: scale(1.05);
+            border-color: transparent;
         }
 
+        /* detail modal — text first */
         .detail-modal {
             display: none;
             position: fixed;
@@ -322,245 +281,194 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.9);
+            background: rgba(6, 5, 14, 0.97);
             backdrop-filter: blur(20px);
             align-items: center;
             justify-content: center;
             z-index: 2000;
-            animation: fadeIn 0.3s;
         }
         .detail-modal.show {
             display: flex;
         }
         .detail-content {
-            background: linear-gradient(135deg, rgba(30,25,45,0.95), rgba(20,15,35,0.98));
-            backdrop-filter: blur(20px);
-            max-width: 1000px;
+            background: #13101e;
+            max-width: 860px;
             width: 90%;
             max-height: 85vh;
-            border-radius: 32px;
-            padding: 1.8rem;
-            border: 1px solid rgba(255,107,107,0.3);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,107,107,0.2);
+            border-radius: 36px;
+            padding: 1.8rem 2rem;
+            border: 1px solid rgba(255, 111, 97, 0.4);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.7);
             overflow-y: auto;
             position: relative;
-            animation: slideUp 0.4s;
         }
         .detail-close {
             position: absolute;
             top: 20px;
             right: 24px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,245,235,0.08);
             border: none;
-            color: white;
-            font-size: 1.5rem;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+            color: #dfdbf5;
+            font-size: 1.3rem;
+            width: 38px;
+            height: 38px;
+            border-radius: 40px;
             cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            transition: 0.2s;
         }
         .detail-close:hover {
-            background: #ff6b6b;
+            background: #ff6f61;
+            color: white;
             transform: rotate(90deg);
         }
-        .detail-main {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-top: 0.5rem;
-        }
-        .detail-gallery {
-            flex: 1.2;
-            min-width: 260px;
-        }
-        .detail-main-img {
-            width: 100%;
-            aspect-ratio: 1;
-            object-fit: cover;
-            border-radius: 24px;
-            border: 2px solid rgba(255,107,107,0.3);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            margin-bottom: 1rem;
-        }
-        .detail-thumbnails {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .thumb-img {
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
-            border-radius: 16px;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.3s;
-        }
-        .thumb-img:hover, .thumb-img.active {
-            border-color: #ff6b6b;
-            transform: scale(1.05);
-        }
-        .detail-info {
-            flex: 1;
-            min-width: 260px;
-        }
         .detail-info h2 {
-            font-size: 1.8rem;
-            background: linear-gradient(135deg, #ffd89b, #ff6b6b);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: #fff2e8;
             margin-bottom: 0.5rem;
+            padding-right: 30px;
         }
         .detail-price {
             font-size: 2rem;
             font-weight: 700;
-            color: #ff8e53;
-            margin: 1rem 0;
+            color: #ffb282;
+            margin: 0.8rem 0;
         }
         .detail-desc {
-            color: rgba(255,255,255,0.7);
+            color: #cfcceb;
             line-height: 1.6;
             margin: 1rem 0;
         }
         .detail-spec {
-            background: rgba(255,255,255,0.05);
-            border-radius: 16px;
-            padding: 1rem;
+            background: #0c0b16;
+            border-radius: 24px;
+            padding: 1rem 1.2rem;
             margin: 1rem 0;
+            border-left: 3px solid #ff8a7a;
         }
         .detail-spec h4 {
-            color: #ff8e53;
-            margin-bottom: 0.8rem;
+            color: #ffbc9a;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
         }
         .detail-spec p {
-            color: rgba(255,255,255,0.6);
+            color: #b5b0db;
             font-size: 0.9rem;
-        }
-        .detail-buy {
-            margin-top: 1.5rem;
+            white-space: pre-line;
         }
         .detail-buy-btn {
-            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            background: #ff6f61;
             border: none;
-            padding: 1rem 2rem;
-            border-radius: 48px;
+            padding: 0.9rem 1.8rem;
+            border-radius: 60px;
             color: white;
             font-weight: 600;
             font-size: 1rem;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: 0.2s;
             width: 100%;
+            margin-top: 0.8rem;
         }
         .detail-buy-btn:hover {
+            background: #ff5848;
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255,107,107,0.4);
         }
 
+        /* side panels */
         .side-panel {
             position: fixed;
             bottom: 100px;
             right: 24px;
-            width: 320px;
+            width: 300px;
             max-width: calc(100% - 48px);
-            background: rgba(20,15,35,0.95);
+            background: #15121e;
             backdrop-filter: blur(20px);
-            border-radius: 28px;
-            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255,107,107,0.3);
+            border-radius: 32px;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255,111,97,0.4);
             z-index: 1001;
             display: none;
             flex-direction: column;
             overflow: hidden;
-            animation: slideUp 0.2s ease;
         }
         .side-panel.show {
             display: flex;
         }
         .panel-header {
-            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
-            color: white;
+            background: #1f1a2e;
+            color: #ffe6d5;
             padding: 14px 18px;
-            font-weight: bold;
+            font-weight: 500;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid rgba(255,140,110,0.3);
         }
         .panel-body {
-            padding: 20px 16px;
+            padding: 24px 18px;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
         .qr-image {
-            max-width: 220px;
+            max-width: 180px;
             width: 100%;
             border-radius: 20px;
-            margin: 12px 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,107,107,0.3);
+            margin: 12px auto;
+            display: block;
+            border: 1px solid #ffa07a;
+            background: #fef2e6;
+        }
+        .qr-caption {
+            font-size: 0.7rem;
+            color: #c2bce4;
+            margin-top: 12px;
         }
         .footer {
-            margin-top: 3rem;
+            margin-top: 3.5rem;
             text-align: center;
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.4);
+            font-size: 0.7rem;
+            color: #605c82;
+            border-top: 0.5px solid rgba(255,245,220,0.08);
+            padding-top: 1.8rem;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @media (max-width: 680px) {
+        @media (max-width: 650px) {
+            .container { padding: 1.2rem 1rem 2rem; }
             .hero h1 { font-size: 2rem; }
-            .detail-main { flex-direction: column; }
-            .thumb-img { width: 55px; height: 55px; }
+            .product-name { font-size: 1.2rem; }
+            .price { font-size: 1.3rem; }
         }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="hero">
-        <h1>⚡ Yonah House ⚡</h1>
-        <div class="sub">Curated Goods for Everyday Life</div>
+        <h1>Yonah House · Text-only</h1>
+        <div class="sub">curated goods · no images, pure essence</div>
     </div>
 
     <div class="search-section">
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="🔍 Find what u need..." autocomplete="off">
-            <button id="searchBtn">Search</button>
+            <input type="text" id="searchInput" placeholder="Search by name or description..." autocomplete="off">
+            <button id="searchBtn">Find</button>
         </div>
-        <div id="searchInfo" class="search-info">✨ All Categories · Clear</div>
+        <div id="searchInfo" class="search-info">📋 All categories · 0 items</div>
     </div>
 
     <div class="category-bar">
-        <button class="cat-btn" data-cat="home">Home</button>
-        <button class="cat-btn" data-cat="accessories">Accessories</button>
-        <button class="cat-btn" data-cat="beauty">Beauty</button>
-        <button class="cat-btn" data-cat="lifestyle">Lifestyle</button>
-        <button class="cat-btn" data-cat="all">All</button>
+        <button class="cat-btn" data-cat="home">🏠 Home</button>
+        <button class="cat-btn" data-cat="accessories">🕶️ Accessories</button>
+        <button class="cat-btn" data-cat="beauty">✨ Beauty</button>
+        <button class="cat-btn" data-cat="lifestyle">🧘 Lifestyle</button>
+        <button class="cat-btn" data-cat="all">🌿 All</button>
     </div>
 
     <div id="productGrid" class="product-grid"></div>
-    <div class="footer">Curated Goods for Everyday Life</div>
+    <div class="footer">Text-first · Minimal · Yonah House</div>
 </div>
 
 <div class="float-buttons">
-    <button class="float-btn" id="paymentCodeBtn">💰</button>
-    <button class="float-btn" id="wechatFriendBtn">🤝</button>
+    <button class="float-btn" id="paymentCodeBtn">💳</button>
+    <button class="float-btn" id="wechatFriendBtn">📞</button>
 </div>
 
 <div id="paymentPanel" class="side-panel">
@@ -569,8 +477,8 @@
         <button class="close-panel" id="closePaymentBtn">✕</button>
     </div>
     <div class="panel-body">
-        <img id="paymentQrImg" class="qr-image" src="https://picui.ogmua.cn/s1/2026/03/27/69c67a129085b.webp" alt="Paypal QR" onerror="this.src='https://placehold.co/300x300/2a1e3a/ff8e53?text=Payment+QR'">
-        <div class="qr-caption">Scan to pay / contact</div>
+        <img id="paymentQrImg" class="qr-image" src="https://picui.ogmua.cn/s1/2026/03/27/69c67a129085b.webp" alt="Payment QR" onerror="this.src='https://placehold.co/280x280/2a1e3a/ff8e53?text=PayPal+QR'">
+        <div class="qr-caption">Scan to pay · contact owner</div>
     </div>
 </div>
 
@@ -580,7 +488,7 @@
         <button class="close-panel" id="closeWechatBtn">✕</button>
     </div>
     <div class="panel-body">
-        <img id="wechatQrImg" class="qr-image" src="https://picui.ogmua.cn/s1/2026/03/27/69c67a128fb34.webp" alt="Whatsapp QR" onerror="this.src='https://placehold.co/300x300/2a1e3a/ff8e53?text=Contact+QR'">
+        <img id="wechatQrImg" class="qr-image" src="https://picui.ogmua.cn/s1/2026/03/27/69c67a128fb34.webp" alt="Contact QR" onerror="this.src='https://placehold.co/280x280/2a1e3a/ff8e53?text=Contact+QR'">
         <div class="qr-caption">Scan to connect with Yonah</div>
     </div>
 </div>
@@ -588,96 +496,62 @@
 <div id="detailModal" class="detail-modal">
     <div class="detail-content">
         <button class="detail-close" id="closeDetailBtn">✕</button>
-        <div class="detail-main" id="detailMain">
-        </div>
+        <div id="detailMain" class="detail-info"></div>
     </div>
 </div>
 
 <script>
+    // english product data — text-only, no images used
     const products = [
-        { id:1, name:"Seven Dragon Ball · Self-discipline & Motivation Art Piece", desc:"Legendary collectible with radiant glow, perfect for anime lovers and collectors. Ultimate energy sphere to inspire daily focus.", price:15.99, unit:"ea", category:"lifestyle", 
-          mainImage:"https://picui.ogmua.cn/s1/2026/03/29/69c8b936025a3.webp",
-          images:["https://picui.ogmua.cn/s1/2026/03/29/69c8b936025a3.webp","https://picsum.photos/id/104/400/400"],
-          specs:"Exclusive limited edition · Material: resin & metallic coating · Diameter: 2.5 in · includes display stand." },
-        { id:2, name:"pebblepaw cat ", desc:"A soft and adorable grey and white tiger-spotted cat plushie ornament that can be hung on bags, keys, etc. It is a trendy accessory that combines cuteness and a sense of companionship.", price:29.99, unit:"ea", category:"accessories", 
-          mainImage:"https://picui.ogmua.cn/s1/2026/03/29/69c92e93ef90b.webp",
-          images:["https://picui.ogmua.cn/s1/2026/03/29/69c92e93ef90b.webp","https://picui.ogmua.cn/s1/2026/03/29/69c92e93ecd3b.webp","https://picui.ogmua.cn/s1/2026/03/29/69c92e94231fc.webp"],
-          specs:"5.12 inches" },
-         { id:3, name:"Ultra Soft Bristles Adult Toothbrush for Sensitive Gums", desc:"High-grade soft bristle toothbrush, gentle on sensitive gums, suitable for adults, couples, students, daily home use.", price:12.99, unit:"ea", category:"lifestyle", 
-          mainImage:"https://picui.ogmua.cn/s1/2026/03/30/69ca9988ee9d4.webp",
-          images:["https://picui.ogmua.cn/s1/2026/03/30/69ca9988ee9d4.webp","https://picui.ogmua.cn/s1/2026/03/30/69ca9988bd5c2.webp","https://picui.ogmua.cn/s1/2026/03/30/69ca998904281.webp","https://picui.ogmua.cn/s1/2026/03/30/69ca9988cf8de.webp"],
-          specs:".1. Ultra soft\n.2. Sensitive gums\n.3. High-grade toothbrush" },
-        { id:4, name:"Cyberpunk Style Lamborghini V12 Building Blocks Sports Car Model", desc:"1:14 scale black-gold cyberpunk building blocks sports car, replicating the V12 engine and suspension structure. Equipped with a bright lighting system, it supports 2.4G remote control/APP control (dynamic version). After assembly, it can be used as a collectible display piece, suitable for building blocks enthusiasts and collectors.", price:29.99, unit:"ea", category:"lifestyle", 
-          mainImage:"https://picui.ogmua.cn/s1/2026/03/30/69ca9cb983746.webp",
-          images:["https://picui.ogmua.cn/s1/2026/03/30/69ca9cb983746.webp","https://picui.ogmua.cn/s1/2026/03/30/69ca9cb9c7c8e.webp","https://picui.ogmua.cn/s1/2026/03/30/69ca9cb955cd6.webp","https://picui.ogmua.cn/s1/2026/03/30/69ca9cb9d95ef.webp"],
-          specs:"Made of eco-friendly ABS building block particles. Includes motor, lithium battery, and remote control components (dynamic version). Finished product dimensions: approx. 35×16×9cm. High assembly difficulty, recommended for ages 14+." },
-        { id:5, name:"Funny Tissue Holder", desc:"Luxury Creative Stone Statue Tissue Box for Living Room | Coffee Table Decor & Funny Storage Holder for Earphones.", price:29.99, unit:"ea", category:"home", 
-          mainImage:"https://picui.ogmua.cn/s1/2026/03/31/69caa0d995e6c.webp",
-          images:["https://picui.ogmua.cn/s1/2026/03/31/69caa00643c0d.webp","https://picui.ogmua.cn/s1/2026/03/31/69caa0065e1f4.webp","https://picui.ogmua.cn/s1/2026/03/31/69caa0d995e6c.webp"],
-          specs:"As shown in the picture." },
-        { id:6, name:"ns-style Korean squatting & hugging healing cactus plush toy, cute cushion doll for sofa, living room and bed", desc:"Cute decorations, embroidered expressions, button design", price:24.99, unit:"ea", category:"lifestyle", 
-          mainImage:"https://picui.ogmua.cn/s1/2026/03/31/69cbdd2f5869c.webp",
-          images:["https://picui.ogmua.cn/s1/2026/03/31/69cbdd2f216e7.webp","https://picui.ogmua.cn/s1/2026/03/31/69cbdd2f5869c.webp","https://picui.ogmua.cn/s1/2026/03/31/69cbdd307f0fa.webp"],
-          specs:"60cm" },
-        { id:7, name:"Japanese-style Glacier-patterned Glass Cup, Aesthetic Home Water Cup for Women, Summer Juice & Coffee Cup, Ins-style Drinking Glass", desc:"Japanese-style glacier textured glass cup, stylish and aesthetic design. Ideal for daily water drinking, summer juice, iced coffee and various beverages. Simple and trendy INS style, perfect for home use", price:9.9, unit:"ea", category:"home", 
-          mainImage:"https://picui.ogmua.cn/s1/2026/03/31/69cbe764e85cb.webp",
-          images:["https://picui.ogmua.cn/s1/2026/03/31/69cbe764e85cb.webp","https://picui.ogmua.cn/s1/2026/03/31/69cbe76268a5e.webp","https://picui.ogmua.cn/s1/2026/03/31/69cbe762b5cfe.webp","https://picui.ogmua.cn/s1/2026/03/31/69cbe7668757f.webp"],
-          specs:"60cm" },
-        { id:8, name:"Crayon Shin-chan Absorbent Floor Mat", desc:"Cute cartoon style, good water absorption, non-slip, easy to clean, suitable for bathroom and home use.", price:15.99, unit:"ea", category:"home", 
-          mainImage:"https://picui.ogmua.cn/s1/2026/03/31/69cbeaec4bfcf.webp",
-          images:["https://picui.ogmua.cn/s1/2026/03/31/69cbeaec4bfcf.webp","https://picui.ogmua.cn/s1/2026/03/31/69cbeaed054f2.webp","https://picui.ogmua.cn/s1/2026/03/31/69cbeaec9c6c0.webp","https://picui.ogmua.cn/s1/2026/03/31/69cbeaed0c36b.webp"],
-          specs:"High-density absorbent material, flat printing, anti-slip and durable.40cm*60cm" },
-        { id:9, name:"Ratatouille", desc:"Ratatouille Plush Headband, Cute Cartoon Ins Style Hair Hoop, Japanese & Korean Lovely Hair Accessory for Washing Face", price:9.99, unit:"ea", category:"accessories", 
-          mainImage:"https://picui.ogmua.cn/s1/2026/04/01/69cd25eb88aed.webp",
-          images:["https://picui.ogmua.cn/s1/2026/04/01/69cd25eb379ee.webp","https://picui.ogmua.cn/s1/2026/04/01/69cd25eb88aed.webp"],
-          specs:"As shown in the picture." },
-        { id:10, name:"New small new cute handbag", desc:"New style cute handbag with large capacity of 2026 Toth fashionable cartoon bag for women, all-matching cloth bag for one shoulder commuting", price:13.99, unit:"ea", category:"lifestyle", 
-          mainImage:"https://picui.ogmua.cn/s1/2026/04/02/69cdbb0f1a106.webp",
-          images:["https://picui.ogmua.cn/s1/2026/04/02/69cdbb0f1a106.webp","https://picui.ogmua.cn/s1/2026/04/02/69cdbb0f4d44c.webp"],
-          specs:"20cm*27cm." },
-        { id:11, name:"Snow Mountain Sunset Golden Mountain Aroma Diffuser Night Light", desc:"This creative home product combines fragrance diffuser and ambient night light in one. Inspired by the stunning 'Sunshine on Golden Mountain', it is made of natural diffuser stone with a 3D snow mountain design. When turned on, it creates a romantic golden mountain light effect for a full atmosphere. Add essential oil, and the scent spreads naturally along the mountain lines, bringing double healing for both sight and smell.", price:29.99, unit:"ea", category:"lifestyle", 
-          mainImage:"https://picui.ogmua.cn/s1/2026/04/02/69cdbb0f74e5d.webp",
-          images:["https://picui.ogmua.cn/s1/2026/04/02/69cdbb0f74e5d.webp","https://picui.ogmua.cn/s1/2026/04/02/69cdbb0d870c2.webp","https://picui.ogmua.cn/s1/2026/04/02/69cdbb0d60a32.webp"],
-          specs:"10cm*10cm*10cm." },
-        { id:12, name:"Crayons small white key latch hanger", desc:"Cute dog crayon small white warm key chain hanging rack small white key anti-lose doll key hanging piece small house", price:9.99, unit:"ea", category:"home", 
-          mainImage:"https://picui.ogmua.cn/s1/2026/04/02/69ce8ffa16943.webp",
-          images:["https://picui.ogmua.cn/s1/2026/04/02/69ce8ffa16943.webp","https://picui.ogmua.cn/s1/2026/04/02/69ce8ffa5d97e.webp","https://picui.ogmua.cn/s1/2026/04/02/69ce8ffa76305.webp","https://picui.ogmua.cn/s1/2026/04/02/69ce8ffa883a7.webp"],
-          specs:"Overall height approx. 8~10 cm, width approx. 6~7 cm, depth approx. 3~4 cm" },
-        { id:13, name:"Van Gogh Starry Night Style Hogwarts Castle Warm Gold Wall Art", desc:"This stunning wall art merges Van Gogh's iconic Starry Night brushstrokes with the magical Hogwarts Castle from Harry Potter. Featuring a warm golden sky, flowing nebula, and glowing castle lights, it creates a cozy, dreamy atmosphere for your living room, study, or bedroom. Made of high-quality canvas with vivid, fade-resistant printing, it's a perfect decor piece for Harry Potter fans and art lovers.", price:69.99, unit:"ea", category:"home", 
-          mainImage:"https://picui.ogmua.cn/s1/2026/04/02/69ce91d995596.webp",
-          images:["https://picui.ogmua.cn/s1/2026/04/02/69ce91d995596.webp","https://picui.ogmua.cn/s1/2026/04/02/69ce91d98ebbf.webp"],
-          specs:"50cm*70cm" },
-        { id:14, name:"Mini Hair Clips", desc:"Cute Bikini Bottom Ugly-Cute Funny Dumb Fish Mini Hair Clips for Broken Hair and Forehead Bangs Hair Accessories", price:6.99, unit:"ea", category:"accessories", 
-          mainImage:"https://picui.ogmua.cn/s1/2026/04/02/69ce92382b917.webp",
-          images:["https://picui.ogmua.cn/s1/2026/04/02/69ce92382b917.webp","https://picui.ogmua.cn/s1/2026/04/02/69ce9238af99d.webp","https://picui.ogmua.cn/s1/2026/04/02/69ce923d2dbbd.webp"],
-          specs:"As shown in the picture" },
-        { id:15, name:"Fortune Attraction Decor", desc:"Chinese Style Muscular God of Wealth Entrance Key Storage Ornament for Living Room Coffee Table & Home Office Desktop Fortune Attraction Decor", price:19.99, unit:"ea", category:"lifestyle", 
-          mainImage:"https://picui.ogmua.cn/s1/2026/04/04/69d0f7a55de23.webp",
-          images:["https://picui.ogmua.cn/s1/2026/04/04/69d0f7a55de23.webp","https://picui.ogmua.cn/s1/2026/04/04/69d0f7a625eca.webp","https://picui.ogmua.cn/s1/2026/04/04/69d0f7a66b694.webp"],
-          specs:"As shown in the picture" },
-        { id:16, name:"BIGCAR Ceramic Coated Insulated Coffee Tumbler 520ML (Ginkgo/Blue Lily/White Mountain Rose)", desc:"This 520ML insulated coffee tumbler from BIGCAR features a high-quality stainless steel interior with a ceramic coating, preventing odor and flavor transfer while keeping drinks hot or cold for a long time. It comes with a detachable tea strainer for tea separation and a silicone seal ring for leak-proof performance. Designed with an original embossed floral pattern (3 styles available: Ginkgo, Blue Lily, White Mountain Rose) and a portable COFFEE lanyard, it is perfect for daily commute, office and outdoor use, keeping your coffee, tea and other drinks at an ideal temperature all year round.", price:19.99, unit:"ea", category:"lifestyle", 
-          mainImage:"https://picui.ogmua.cn/s1/2026/04/04/69d0f9436de5b.webp",
-          images:["https://picui.ogmua.cn/s1/2026/04/04/69d0f9436de5b.webp","https://picui.ogmua.cn/s1/2026/04/04/69d0f943ccf6a.webp","https://picui.ogmua.cn/s1/2026/04/04/69d0f943eb7b6.webp"],
-          specs:"- Capacity: 520ml\n- Material: 304 stainless steel with ceramic coating (inner), food-grade PP lid, silicone seal ring" },
-        { id:17, name:"Small transparent fish tank", desc:"Transparent small fish tank, ice crystal tabletop, creative ecology, fish tank, pearl, broken drill, landscape tank, complete set of decoration and landscaping", price:18.99, unit:"ea", category:"lifestyle", 
-          mainImage:"https://picui.ogmua.cn/s1/2026/04/04/69d0fa4eb470a.webp",
-          images:["https://picui.ogmua.cn/s1/2026/04/04/69d0fa4eb470a.webp","https://picui.ogmua.cn/s1/2026/04/04/69d0fa4ebdc19.webp","https://picui.ogmua.cn/s1/2026/04/04/69d0fa4ec1fa0.webp"],
-          specs:"12*12*16" }
+        { id:1, name:"Seven Dragon Ball · Self-discipline Art Piece", desc:"Legendary collectible with radiant glow, inspires daily focus and motivation. Perfect for anime lovers.", price:15.99, unit:"pc", category:"lifestyle", 
+          specs:"Limited edition · resin + metallic coating · Diameter 2.5 in · includes display stand." },
+        { id:2, name:"pebblepaw Cat Plush Charm", desc:"Adorable grey & white tiger-striped cat plushie. Bag/key accessory, combines cuteness and companionship.", price:29.99, unit:"pc", category:"accessories", 
+          specs:"Approx 5.1 inches · high-quality plush fabric." },
+        { id:3, name:"Ultra Soft Bristles Toothbrush", desc:"High-grade soft bristle toothbrush, gentle on sensitive gums. Perfect for adults, couples, students.", price:12.99, unit:"pc", category:"lifestyle", 
+          specs:"Ultra soft · sensitive gums · premium ergonomic handle." },
+        { id:4, name:"Cyberpunk Lamborghini V12 Building Blocks", desc:"1:14 scale black-gold cyberpunk sports car model, V12 engine, suspension, lighting & remote control option.", price:29.99, unit:"set", category:"lifestyle", 
+          specs:"Eco-friendly ABS blocks · dynamic version includes motor/battery · 35x16x9cm · age 14+" },
+        { id:5, name:"Creative Stone Statue Tissue Holder", desc:"Luxury funny tissue box cover for living room, coffee table decor & quirky storage holder.", price:29.99, unit:"pc", category:"home", 
+          specs:"Resin stone texture · as shown in pictures" },
+        { id:6, name:"Healing Cactus Plush Cushion", desc:"Korean-style squatting cactus plush toy, cute embroidered expression, perfect sofa / bed decor.", price:24.99, unit:"pc", category:"lifestyle", 
+          specs:"Approx 60cm · soft plush & button design" },
+        { id:7, name:"Japanese Glacier Glass Cup", desc:"Aesthetic textured glass cup, ideal for juice, iced coffee, daily water. Ins style home essential.", price:9.9, unit:"pc", category:"home", 
+          specs:"Glacier pattern · 350ml approx · dishwasher safe" },
+        { id:8, name:"Crayon Shin-chan Absorbent Floor Mat", desc:"Cute cartoon bath mat, super absorbent, non-slip, easy to clean for bathroom & home.", price:15.99, unit:"pc", category:"home", 
+          specs:"40x60cm · high-density material · anti-slip" },
+        { id:9, name:"Ratatouille Plush Headband", desc:"Cute cartoon hair hoop, japanese/korean style, perfect for face washing or daily accessory.", price:9.99, unit:"pc", category:"accessories", 
+          specs:"Soft plush, adjustable fit" },
+        { id:10, name:"Tote Bag · Cute Cartoon Handbag", desc:"Large capacity, fashionable cartoon bag for women, daily commute & shoulder bag.", price:13.99, unit:"pc", category:"lifestyle", 
+          specs:"20x27cm · durable canvas" },
+        { id:11, name:"Aroma Diffuser · Golden Mountain Night Light", desc:"3D snow mountain design, essential oil diffuser + ambient night light, golden glow effect.", price:29.99, unit:"pc", category:"lifestyle", 
+          specs:"10x10x10cm · natural stone · USB powered" },
+        { id:12, name:"Cute Dog Keychain Hanger", desc:"Warm little white dog key holder, anti-lose doll key hanger, cute home accessory.", price:9.99, unit:"pc", category:"home", 
+          specs:"8~10cm height · resin & plush details" },
+        { id:13, name:"Van Gogh Starry Night · Hogwarts Wall Art", desc:"Magical blend of Starry Night brushstrokes and Hogwarts castle, warm gold tones, fade-resistant canvas.", price:69.99, unit:"pc", category:"home", 
+          specs:"50x70cm · premium canvas print · ready to hang" },
+        { id:14, name:"Mini Hair Clips · Funny Fish Set", desc:"Cute bikini-bottom style, ugly-cute fish mini clips for broken hair or bangs.", price:6.99, unit:"set", category:"accessories", 
+          specs:"Set of 4 · durable resin" },
+        { id:15, name:"Muscular God of Wealth Decor", desc:"Chinese style muscular wealth god key holder / desktop ornament, fortune attraction.", price:19.99, unit:"pc", category:"lifestyle", 
+          specs:"Resin statue · as shown" },
+        { id:16, name:"BIGCAR Ceramic Coated Tumbler 520ml", desc:"Insulated coffee tumbler with ceramic coating, leak-proof, includes tea strainer, floral patterns (Ginkgo/Lily/Rose).", price:19.99, unit:"pc", category:"lifestyle", 
+          specs:"520ml · 304 stainless steel + ceramic inner · PP lid" },
+        { id:17, name:"Small Transparent Fish Tank", desc:"Ice crystal desktop fish tank, creative ecology landscape kit, complete set.", price:18.99, unit:"pc", category:"lifestyle", 
+          specs:"12x12x16cm · acrylic" }
     ];
 
     let currentCategory = "all";
     let currentSearchKeyword = "";
 
-    function escapeHtml(str) { 
-        if(!str) return ''; 
-        return str.replace(/[&<>]/g, (m) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[m] || m)); 
+    function escapeHtml(str) {
+        if(!str) return '';
+        return str.replace(/[&<>]/g, (m) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[m] || m));
     }
 
     function getFilteredProducts() {
         let filtered = [...products];
         if(currentSearchKeyword.trim() !== "") {
-            const keyword = currentSearchKeyword.trim().toLowerCase();
-            filtered = filtered.filter(p => p.name.toLowerCase().includes(keyword) || p.desc.toLowerCase().includes(keyword));
+            const kw = currentSearchKeyword.trim().toLowerCase();
+            filtered = filtered.filter(p => p.name.toLowerCase().includes(kw) || p.desc.toLowerCase().includes(kw));
         } else if(currentCategory !== "all") {
             filtered = filtered.filter(p => p.category === currentCategory);
         }
@@ -688,38 +562,33 @@
         const filtered = getFilteredProducts();
         const grid = document.getElementById("productGrid");
         const searchInfoDiv = document.getElementById("searchInfo");
-        
+
         if(filtered.length === 0) {
-            grid.innerHTML = `<div style="text-align:center; padding:50px 20px; color:rgba(255,255,255,0.5);">✨ No products matched ✨</div>`;
-            searchInfoDiv.innerHTML = currentSearchKeyword ? `🔍 “${escapeHtml(currentSearchKeyword)}” · 0 items` : `✨ 0 items · click to clear`;
+            grid.innerHTML = `<div style="text-align:center; padding:50px 20px; color:#a6a2ca;">✨ No products matched ✨</div>`;
+            searchInfoDiv.innerHTML = currentSearchKeyword ? `🔍 “${escapeHtml(currentSearchKeyword)}” · 0 items` : `✨ 0 items · click to reset`;
             return;
         }
-        
-        searchInfoDiv.innerHTML = currentSearchKeyword ? `🔍 “${escapeHtml(currentSearchKeyword)}”  ${filtered.length} items` : `✨  ${filtered.length} items · click to reset`;
-        
+
+        searchInfoDiv.innerHTML = currentSearchKeyword ? `🔍 “${escapeHtml(currentSearchKeyword)}”  ${filtered.length} items` : `📋 ${filtered.length} curated items · click to reset`;
+
         grid.innerHTML = filtered.map(product => `
             <div class="product-card" data-id="${product.id}">
-                <div class="product-img">
-                    <img src="${product.mainImage}" alt="${escapeHtml(product.name)}" onerror="this.src='https://picsum.photos/id/1/300/200'">
+                <div class="text-badge">✦ ${product.category}</div>
+                <div class="product-name">${escapeHtml(product.name)}</div>
+                <div class="product-desc">${escapeHtml(product.desc)}</div>
+                <div class="meta-row">
+                    <span class="price">$${product.price.toFixed(2)}</span>
+                    <span class="unit">/ ${escapeHtml(product.unit)}</span>
+                    <span class="category-tag">${escapeHtml(product.category)}</span>
                 </div>
-                <div class="product-info">
-                    <div class="product-name">${escapeHtml(product.name)}</div>
-                    <div class="product-desc">${escapeHtml(product.desc)}</div>
-                    <div class="price-row">
-                        <span class="price">$${product.price.toFixed(2)}</span>
-                        <span class="unit">/${escapeHtml(product.unit)}</span>
-                    </div>
-                    <div class="buy-simple">
-                        <span class="order-hint-simple">✨ Click to view details ✨</span>
-                    </div>
-                </div>
+                <div class="info-hint">📖 tap for details →</div>
             </div>
         `).join('');
 
         document.querySelectorAll('.product-card').forEach(card => {
             card.addEventListener('click', () => {
-                const productId = parseInt(card.dataset.id);
-                const product = products.find(p => p.id === productId);
+                const pid = parseInt(card.dataset.id);
+                const product = products.find(p => p.id === pid);
                 if(product) showProductDetail(product);
             });
         });
@@ -729,53 +598,25 @@
         const modal = document.getElementById("detailModal");
         const detailMain = document.getElementById("detailMain");
         
-        const images = product.images && product.images.length ? product.images : [product.mainImage];
-        
         detailMain.innerHTML = `
-            <div class="detail-gallery">
-                <img id="detailMainImg" class="detail-main-img" src="${product.mainImage}" alt="${escapeHtml(product.name)}" onerror="this.src='https://picsum.photos/id/1/400/400'">
-                <div class="detail-thumbnails" id="detailThumbnails">
-                    ${images.map((img, idx) => `
-                        <img class="thumb-img ${idx === 0 ? 'active' : ''}" data-src="${img}" src="${img}" alt="thumbnail" onerror="this.src='https://picsum.photos/id/1/70/70'">
-                    `).join('')}
-                </div>
+            <h2>${escapeHtml(product.name)}</h2>
+            <div class="detail-price">$${product.price.toFixed(2)} <span style="font-size:1rem;">/ ${product.unit}</span></div>
+            <div class="detail-desc">${escapeHtml(product.desc)}</div>
+            <div class="detail-spec">
+                <h4>📦 Specifications</h4>
+                <p>${escapeHtml(product.specs) || "Premium quality from Yonah House. Carefully sourced for your everyday joy."}</p>
             </div>
-            <div class="detail-info">
-                <h2>${escapeHtml(product.name)}</h2>
-                <div class="detail-price">$${product.price.toFixed(2)} <span style="font-size:1rem;">/${product.unit}</span></div>
-                <div class="detail-desc">${escapeHtml(product.desc)}</div>
-                <div class="detail-spec">
-                    <h4>📦 Specifications</h4>
-                    <p>${escapeHtml(product.specs) || "Premium quality from Yonah House. Carefully sourced for your everyday joy."}</p>
-                </div>
-                <div class="detail-buy">
-                    <button class="detail-buy-btn" id="detailBuyBtn">Yonah</button>
-                </div>
-            </div>
+            <button class="detail-buy-btn" id="detailBuyBtn">✧ Purchase / Inquire ✧</button>
         `;
-        
         modal.classList.add("show");
-
+        
         setTimeout(() => {
-            const thumbs = document.querySelectorAll('.thumb-img');
-            const mainImg = document.getElementById('detailMainImg');
-            thumbs.forEach(thumb => {
-                thumb.addEventListener('click', () => {
-                    thumbs.forEach(t => t.classList.remove('active'));
-                    thumb.classList.add('active');
-                    const targetSrc = thumb.dataset.src || thumb.src;
-                    if(mainImg) mainImg.src = targetSrc;
-                });
-            });
-            
             const buyBtn = document.getElementById('detailBuyBtn');
-            if(buyBtn) {
-                buyBtn.onclick = () => {
-                    closeAllPanels();
-                    showPaymentPanel();
-                };
-            }
-        }, 50);
+            if(buyBtn) buyBtn.onclick = () => {
+                closeAllPanels();
+                showPaymentPanel();
+            };
+        }, 30);
     }
 
     function performSearch() {
@@ -809,45 +650,25 @@
         renderProductGrid();
     }
 
-    let paymentPanelOpen = false, wechatPanelOpen = false;
     function closeAllPanels() {
-        const paymentPanel = document.getElementById("paymentPanel");
-        const wechatPanel = document.getElementById("wechatPanel");
-        if(paymentPanel) paymentPanel.classList.remove("show");
-        if(wechatPanel) wechatPanel.classList.remove("show");
-        paymentPanelOpen = false;
-        wechatPanelOpen = false;
+        document.getElementById("paymentPanel")?.classList.remove("show");
+        document.getElementById("wechatPanel")?.classList.remove("show");
     }
-    
     function showPaymentPanel() {
         const panel = document.getElementById("paymentPanel");
-        if(!panel) return;
-        if(panel.classList.contains("show")) {
-            closeAllPanels();
-        } else {
-            closeAllPanels();
-            panel.classList.add("show");
-            paymentPanelOpen = true;
-        }
+        if(panel.classList.contains("show")) closeAllPanels();
+        else { closeAllPanels(); panel.classList.add("show"); }
     }
-    
     function showWechatPanel() {
         const panel = document.getElementById("wechatPanel");
-        if(!panel) return;
-        if(panel.classList.contains("show")) {
-            closeAllPanels();
-        } else {
-            closeAllPanels();
-            panel.classList.add("show");
-            wechatPanelOpen = true;
-        }
+        if(panel.classList.contains("show")) closeAllPanels();
+        else { closeAllPanels(); panel.classList.add("show"); }
     }
 
     function initEventListeners() {
         document.querySelectorAll(".cat-btn").forEach(btn => {
             btn.addEventListener("click", () => switchCategory(btn.dataset.cat));
         });
-        
         document.getElementById("searchBtn").onclick = performSearch;
         const searchInput = document.getElementById("searchInput");
         if(searchInput) searchInput.onkeypress = (e) => { if(e.key === "Enter") performSearch(); };
@@ -858,16 +679,10 @@
                 if(currentSearchKeyword) {
                     currentSearchKeyword = "";
                     document.getElementById("searchInput").value = "";
-                    if(currentCategory !== "all") {
-                        switchCategory("all");
-                    } else {
-                        renderProductGrid();
-                    }
-                } else if(currentCategory !== "all") {
-                    switchCategory("all");
-                } else {
-                    renderProductGrid();
-                }
+                    if(currentCategory !== "all") switchCategory("all");
+                    else renderProductGrid();
+                } else if(currentCategory !== "all") switchCategory("all");
+                else renderProductGrid();
             };
         }
         
@@ -886,11 +701,6 @@
                 closeAllPanels();
             }
         });
-        
-        const paymentQr = document.getElementById("paymentQrImg");
-        const wechatQr = document.getElementById("wechatQrImg");
-        if(paymentQr) paymentQr.onerror = () => { paymentQr.src = "https://placehold.co/300x300/2a1e3a/ff8e53?text=Payment+QR"; };
-        if(wechatQr) wechatQr.onerror = () => { wechatQr.src = "https://placehold.co/300x300/2a1e3a/ff8e53?text=Contact+QR"; };
     }
 
     document.addEventListener("DOMContentLoaded", () => {
